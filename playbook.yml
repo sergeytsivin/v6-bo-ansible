@@ -1,12 +1,24 @@
 ---
 - hosts: all
   sudo: true
+  vars:
+    project_build_url: http://hg.rbc.ru/repo/rbc.ru/fp/6.0/build_backend
+    project_host: v6.bo.rbc.vagrant
+    project_path: /vagrant/{{ project_host }}
+    user:
+      full_name: Sample User
+      name: user
+      email: user@example.com
+      password: "****"
   tasks:
-    - name: update apt cache
-      apt: update_cache=yes
+#    - name: update apt cache
+#      apt: update_cache=yes
     - name: install dependencies
       apt: name={{ item }} state=latest
       with_items:
+        - php5-cli # required for haru
+        - git # required for haru
+        - mercurial # required for haru
         - python-virtualenv
         - python-dev
         - unzip
@@ -15,6 +27,17 @@
         - daemontools
         - libxml2-dev
         - libxslt1-dev
+    - name: checkout haru
+      git: repo=https://github.com/TheRatG/haru.git
+         dest=/vagrant/haru
+    - name: setup .hgrc
+      template: src=templates/.hgrc.j2 dest=/home/vagrant/.hgrc
+    - name: get build
+      command: ./phing get-build -Dpath={{ project_path }} -Dhost={{ project_host }} -Dvcs=hg -Dsrc={{ project_build_url }}
+      args:
+        chdir: /vagrant/haru
+        creates: /vagrant/build
+
 #  handlers:
 #    - name: restart ntpd
 #      service: name=ntpd state=restarted
