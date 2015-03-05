@@ -1,0 +1,21 @@
+---
+- hosts: all
+  sudo: true
+  tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+    - name: install dependencies
+      apt: name={{ item }} state=latest
+      with_items:
+        - python-virtualenv
+        - python-dev
+        - unzip
+        - libgd2-xpm-dev
+        - libmemcached-dev
+        - daemontools
+        - libxml2-dev
+        - libxslt1-dev
+#  handlers:
+#    - name: restart ntpd
+#      service: name=ntpd state=restarted
+
