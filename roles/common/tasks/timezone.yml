@@ -1,0 +1,11 @@
+---
+- name: make sure tzdata is present
+  sudo: yes
+  apt: name=tzdata state=present
+- name: set the timezone
+  sudo: yes
+  template:
+    src=timezone.conf.j2
+    dest=/etc/timezone
+  notify: reconfigure timezone
+

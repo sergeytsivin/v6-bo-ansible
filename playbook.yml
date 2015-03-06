@@ -9,8 +9,11 @@
       name: user
       email: user@example.com
       password: "****"
+  roles:
+    - common
   tasks:
     - name: update apt cache
+      sudo: yes
       apt: update_cache=yes
     - name: install dependencies
       apt: name={{ item }} state=latest

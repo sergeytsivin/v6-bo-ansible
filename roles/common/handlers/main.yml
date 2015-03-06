@@ -1,0 +1,4 @@
+---
+- name: reconfigure timezone
+  sudo: yes
+  shell: /usr/sbin/dpkg-reconfigure -f noninteractive tzdata
