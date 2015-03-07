@@ -22,6 +22,8 @@
         - php5-cli # required for haru
         - git # required for haru
         - mercurial # required for haru
+        - enchant # for spell-check
+        - aspell-ru # for spell-check
         - python-virtualenv
         - python-dev
         - unzip
