@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     project_build_url: http://hg.rbc.ru/repo/rbc.ru/fp/6.0/build_backend
-    project_host: v6.bo.rbc.vagrant
+    project_host: bo.v6.rbc.vagrant
     project_path: /vagrant/
     user:
       full_name: Sample User
