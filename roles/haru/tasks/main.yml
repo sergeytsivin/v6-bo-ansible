@@ -1,0 +1,16 @@
+---
+- name: install haru dependencies
+  apt: name={{ item }} state=latest
+  sudo: true
+  with_items:
+    - php5-cli # required for haru
+    - git # required for haru
+    - mercurial # required for haru
+- name: checkout haru
+  git: repo=https://github.com/TheRatG/haru.git
+     dest={{ project_path }}/haru
+- name: get build
+  shell: yes no | {{ project_path }}/haru/phing get-build -Dpath={{ project_path }} -Dhost={{ project_host }} -Dvcs=hg -Dsrc={{ project_build_url }}
+  args:
+    chdir: "{{ project_path }}/haru"
+    creates: "{{ project_path }}/build"
