@@ -42,8 +42,8 @@
     - name: get build
       shell: yes no | {{ project_path }}/haru/phing get-build -Dpath={{ project_path }} -Dhost={{ project_host }} -Dvcs=hg -Dsrc={{ project_build_url }}
       args:
-        chdir: {{ project_path }}/haru
-        creates: {{ project_path }}/build
+        chdir: "{{ project_path }}/haru"
+        creates: "{{ project_path }}/build"
 
 #  handlers:
 #    - name: restart ntpd
