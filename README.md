@@ -52,7 +52,7 @@ Deploying to local host:
     [webservers]
     localhost ansible_connection=local
 ```
-* Create PROJECT_ROOT/group_vars file with content similar to the following:
+* Create PROJECT_ROOT/group_vars/webservers file with content similar to the following:
 ```
     ---
     project_host: bo.v6.rbc.local
