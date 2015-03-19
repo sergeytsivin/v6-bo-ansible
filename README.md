@@ -5,7 +5,7 @@ Deploying to vagrant:
 
 1. Create PROJECT_ROOT folder, for example /www/bo.v6.rbc.vagrant
 2. Clone this repo to PROJECT_ROOT/provisioning/ folder.
-3. Create Vagrantfile with content similar to the following:
+3. Create Vagrantfile with content similar to the following and run ```vagrant up```:
 
 ```
     # -*- mode: ruby -*-
@@ -35,7 +35,6 @@ Deploying to vagrant:
     end
 ```
 
-4. Run vagrant provision
 
 
 Deploying to local host:
