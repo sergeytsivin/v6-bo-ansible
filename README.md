@@ -3,9 +3,10 @@ This Ansible playbook is designed to simplify deployment of projects either on V
 Deploying to vagrant:
 --------------------
 
-1) Create PROJECT_ROOT folder, for example /www/bo.v6.rbc.vagrant
-2) Clone this repo to PROJECT_ROOT/provisioning/ folder.
-3) Create Vagrantfile with content similar to the following:
+1. Create PROJECT_ROOT folder, for example /www/bo.v6.rbc.vagrant
+2. Clone this repo to PROJECT_ROOT/provisioning/ folder.
+3. Create Vagrantfile with content similar to the following:
+
 
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
@@ -34,20 +35,20 @@ Deploying to vagrant:
     end
 
 
-4) Run vagrant provision
+4. Run vagrant provision
 
 
 Deploying to local host:
 -----------------------
 
-1) Create PROJECT_ROOT folder, for example /www/bo.v6.rbc.local
-2) Clone this repo to PROJECT_ROOT/provisioning/ folder.
-3) Create PROJECT_ROOT/inventory file with the following content:
+1. Create PROJECT_ROOT folder, for example /www/bo.v6.rbc.local
+2. Clone this repo to PROJECT_ROOT/provisioning/ folder.
+3. Create PROJECT_ROOT/inventory file with the following content:
 
     [webservers]
     localhost ansible_connection=local
 
-4) Create PROJECT_ROOT/group_vars file with content similar to the following:
+4. Create PROJECT_ROOT/group_vars file with content similar to the following:
 
     ---
     project_host: bo.v6.rbc.local
@@ -58,6 +59,6 @@ Deploying to local host:
       name: username
       password: ***
 
-5) Run the following command:
+5. Run the following command:
 
     ansible-playbook -vvv --ask-sudo-pass -i provisioning/inventory provisioning/playbook.yml
