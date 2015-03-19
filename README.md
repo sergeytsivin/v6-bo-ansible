@@ -7,7 +7,7 @@ Deploying to vagrant:
 2. Clone this repo to PROJECT_ROOT/provisioning/ folder.
 3. Create Vagrantfile with content similar to the following:
 
-
+```
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
     
@@ -33,7 +33,7 @@ Deploying to vagrant:
             }
         end
     end
-
+```
 
 4. Run vagrant provision
 
