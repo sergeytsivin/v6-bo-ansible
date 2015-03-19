@@ -1,5 +1,10 @@
 This Ansible playbook is designed to simplify deployment of projects either on Vagrant or local machine.
 
+Prerequisites:
+-------------
+
+Install ansible: ```sudo pip install ansible```
+
 Deploying to vagrant:
 --------------------
 
