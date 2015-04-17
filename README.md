@@ -45,14 +45,14 @@ Deploying to vagrant:
 Deploying to local host:
 -----------------------
 
-* Create PROJECT_ROOT folder, for example /www/bo.v6.rbc.local
-* Clone this repo to PROJECT_ROOT/provisioning/ folder.
-* Create PROJECT_ROOT/inventory file with the following content:
+* Create PROJECT_ROOT folder, for example `/www/bo.v6.rbc.local`
+* Clone this repo to `PROJECT_ROOT/provisioning` folder.
+* Create `PROJECT_ROOT/provisioning/inventory` file with the following content:
 ```
     [webservers]
     localhost ansible_connection=local
 ```
-* Create PROJECT_ROOT/group_vars/webservers file with content similar to the following:
+* Create `PROJECT_ROOT/provisioning/group_vars/webservers` file with content similar to the following:
 ```
     ---
     project_host: bo.v6.rbc.local
